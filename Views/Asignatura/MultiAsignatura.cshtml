@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<Asignatura>
+
+<strong>vista parcial</strong>
+
+@foreach (var item in Model)
+{
+    <partial name="_ObjetoEscuelaSimple" model="item" />
+}
+

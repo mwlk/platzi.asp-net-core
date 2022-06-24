@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model Asignatura
+
+<strong>vista normal</strong>
+<p>
+    Nombre: @Model.Nombre
+    Id: @Model.Id
+</p>
+
+<strong>vista parcial</strong>
+<partial name="_ObjetoEscuelaSimple" />
