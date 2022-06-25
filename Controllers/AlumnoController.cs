@@ -24,11 +24,19 @@ namespace Platzi.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        [Route("alumno")]
+        [Route("alumno/{alumnoId}")]
+        public IActionResult Index(string alumnoId)
         {
-            var alumno = _context.Alumnos.FirstOrDefault();
+            if (!string.IsNullOrEmpty(alumnoId))
+            {
+                var alumno =
+                    from al in _context.Alumnos
+                    where al.Id == alumnoId select al;
 
-            return View(alumno);
+                return View(alumno.SingleOrDefault());
+            }
+            return View("MultiAlumno", _context.Alumnos.ToList());
         }
 
         public IActionResult MultiAlumno()

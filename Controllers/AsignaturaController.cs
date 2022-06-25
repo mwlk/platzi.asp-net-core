@@ -20,6 +20,7 @@ namespace Platzi.Controllers
         //     var asignatura = _context.Asignaturas.FirstOrDefault();
         //     return View(asignatura);
         // }
+        
         [Route("asignatura")]
         [Route("asignatura/{asignaturaId}")]
         public IActionResult Index(string asignaturaId)
