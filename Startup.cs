@@ -27,9 +27,16 @@ namespace Platzi
         {
             services.AddControllersWithViews();
 
+            // services
+            //     .AddDbContext<EscuelaContext>(options =>
+            //         options.UseInMemoryDatabase(databaseName: "TestDB"));
+
+            var connString =
+                Configuration.GetConnectionString("DefaultConnection");
+
             services
                 .AddDbContext<EscuelaContext>(options =>
-                    options.UseInMemoryDatabase(databaseName: "TestDB"));
+                    options.UseSqlServer(connString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

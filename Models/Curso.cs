@@ -6,7 +6,10 @@ namespace Platzi.Models
 {
     public class Curso : ObjetoEscuelaBase
     {
-        [Required]
+        [Required(ErrorMessage = "Campo Requerido")]
+        [MaxLength(9)]
+        [MinLength(5)]
+        [Display(Prompt = "Especificacion de Curso")]
         public override string Nombre { get; set; }
         public TiposJornada Jornada { get; set; }
 
